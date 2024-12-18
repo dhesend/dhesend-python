@@ -1,3 +1,3 @@
 
-from main import Dhesend
-import type
+from .main import Dhesend
+from .type import *

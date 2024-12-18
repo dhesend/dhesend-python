@@ -1,4 +1,15 @@
-pyenv
+__pycache__/
+*.pyc
+
+venv/
+*.env/
+
 test*
 .env
-__pycache__/
+pyenv/
+
+# Distribution / packaging files
+*.egg
+*.egg-info
+dist/
+build/
