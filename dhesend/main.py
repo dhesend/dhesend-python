@@ -2,11 +2,11 @@ from typing import Literal, Union, Dict, Any
 from requests import request
 from requests.exceptions import JSONDecodeError, InvalidJSONError, ConnectionError
 
-from constants import BASE_URL, USER_AGENT
-from _email import Email
-from domain import Domain
-from apikey import Apikey
-from webhook import Webhook
+from .constants import BASE_URL, USER_AGENT
+from ._email import Email
+from .domain import Domain
+from .apikey import Apikey
+from .webhook import Webhook
 
 class Dhesend:
     def __init__(self, api_key: str, user_agent=USER_AGENT, base_url=BASE_URL):

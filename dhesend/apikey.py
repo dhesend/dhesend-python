@@ -1,10 +1,10 @@
 from typing import Optional, List, TYPE_CHECKING
 
-from path import CREATE_APIKEY_PATH, LIST_APIKEY_PATH, DELETE_APIKEY_PATH
-from type import Apikey, FetchResponse
+from .path import CREATE_APIKEY_PATH, LIST_APIKEY_PATH, DELETE_APIKEY_PATH
+from .type import Apikey, FetchResponse
 
 if TYPE_CHECKING:
-    from main import Dhesend
+    from .main import Dhesend
     
 class Apikey:
     def __init__(self, dhesend: "Dhesend"):

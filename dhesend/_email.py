@@ -1,7 +1,7 @@
 from typing import TYPE_CHECKING, List
 
-from path import GET_EMAIL_PATH, SEND_EMAIL_PATH, LIST_EMAIL_PATH
-from type import (
+from .path import GET_EMAIL_PATH, SEND_EMAIL_PATH, LIST_EMAIL_PATH
+from .type import (
     SendEmailPayload, 
     FetchResponse,
     GetEmailDetails,
@@ -11,7 +11,7 @@ from type import (
 )
 
 if TYPE_CHECKING:
-    from main import Dhesend
+    from .main import Dhesend
 
 class Email:
     def __init__(self, dhesend: "Dhesend"):

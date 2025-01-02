@@ -158,7 +158,13 @@ class CreateDomainResponse(TypedDict):
     message: str
     txt: TXTRecord
     dkim: List[DKIMRecord]
-    
+
+class GetDomainResponse(TypedDict):
+    domainName: str
+    status: Literal["failed", "verified", "verifying"]
+    txt: TXTRecord
+    dkim: List[DKIMRecord]
+    createdAt: str
     
 class ListDomainDetail(TypedDict):
     """
@@ -168,7 +174,7 @@ class ListDomainDetail(TypedDict):
     - `createAt`: Date and time when the domain was created
     - `updatedAt`: Date and time when the domain was last updated
     """
-    domain: str
+    domainName: str
     status: Literal["failed", "verified", "verifying"]
     createdAt: str
     updatedAt: str

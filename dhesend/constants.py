@@ -1,5 +1,4 @@
-
-BASE_URL="http://localhost:7000"
+BASE_URL="https://api.dhesend.com"
 
 VERSION="1.0.0"
 

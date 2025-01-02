@@ -1,16 +1,17 @@
 from typing import TYPE_CHECKING, List
 from re import match
 
-from path import CREATE_DOMAIN_PATH, DELETE_DOMAIN_PATH, LIST_DOMAIN_PATH
-from type import (
+from .path import CREATE_DOMAIN_PATH, DELETE_DOMAIN_PATH, LIST_DOMAIN_PATH, GET_DOMAIN_PATH
+from .type import (
     DeleteDomainResponse, 
     FetchResponse, 
     CreateDomainResponse, 
-    ListDomainDetail
+    ListDomainDetail,
+    GetDomainResponse
 )
 
 if TYPE_CHECKING:
-    from main import Dhesend
+    from .main import Dhesend
     
 class Domain:
     def __init__(self, dhesend: "Dhesend"):
@@ -24,6 +25,9 @@ class Domain:
             }
         
         return self.dhesend.post(path=CREATE_DOMAIN_PATH, body={ "domain": domain_name })
+    
+    def get(self, domain_name: str) -> FetchResponse[GetDomainResponse]:
+        self.dhesend.get(GET_DOMAIN_PATH(domain_name))
     
     def list(self) -> FetchResponse[List[ListDomainDetail]]:
         return self.dhesend.get(path=LIST_DOMAIN_PATH)

@@ -2,9 +2,9 @@ from typing import TYPE_CHECKING, List, Literal
 from re import match
 
 if TYPE_CHECKING:
-    from main import Dhesend
+    from .main import Dhesend
 
-from type import (
+from .type import (
     CreateWebhookResponse,
     ListWebhookResponse,
     WebhookEvent,
@@ -13,12 +13,13 @@ from type import (
     RefreshWebhookSecretResponse,
     DeleteWebhookResponse,
 )
-from path import (
+from .path import (
     CREATE_WEBHOOK_PATH,
     LIST_WEBHOOK_PATH,
     DELETE_WEBHOOK_PATH,
     REFRESH_WEBHOOK_SECRET_PATH,
     UPDATE_WEBHOOK_STATUS_PATH,
+    GET_WEBHOOK_PATH
 )
 
 
@@ -47,6 +48,9 @@ class Webhook:
                 "events": events,
             },
         )
+
+    def get(self, webhookId: str) -> FetchResponse[ListWebhookResponse]:
+        return self.dhesend.get(GET_WEBHOOK_PATH(webhookId))
 
     def list(self) -> FetchResponse[List[ListWebhookResponse]]:
         return self.dhesend.get(path=LIST_WEBHOOK_PATH)
